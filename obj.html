@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>js project</h1>
+    <button onclick="create()" >onclick</button>
+    <p id="n1"></p>
+    <script>
+        var obj2={
+            "1":"teju",
+            "2":"pallu",
+            "3":['a','b',1,2,3,4,5]
+        }
+        console.log(obj2);
+        console.log(obj2["1"]);
+        console.log(obj2["3"]);
+        console.log( Object.keys(obj2));
+         var data1=eval(56*77-98+65*6);
+        console.log(data1);
+        var dat=parseInt(Math.random()*10);
+        console.log(dat);
+        function create(){
+        var data3=parseInt(Math.random()*6)+1;
+       // console.log(data3)
+       document.getElementById("n1").innerHTML=data3
+        }
+       // console.log(data3)
+
+        
+            </script>
+</body>
+</html>
+ <!--//write a program to genreate number between 1 to 6 using function and show the value 
+//write a program to genreate 6 digit number -->
