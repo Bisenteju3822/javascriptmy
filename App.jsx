@@ -1,13 +1,17 @@
-import UnAuth from "./UnAuth";
-import Auth from "./Auth";
-import { MylogContext } from "./LoginContext";
-import { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import Register from "./Components/Registration";
+import Navbar from "./Components/Navbar";
 const App = () => {
-  const { user } = useContext(MylogContext);
   return (
     <>
-      <h1>My login page</h1>
-      {user.auth ? <Auth /> : <UnAuth />}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Register />} />
+      </Routes>
     </>
   );
 };
