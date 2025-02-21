@@ -1,18 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./Components/Home";
-import Login from "./Components/Login";
-import Register from "./Components/Registration";
-import Navbar from "./Components/Navbar";
-import Dashboard from "./Components/DashBoard";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./Home";
+import Display from "./Display";
+import Insert from "./Select";
 const App = () => {
   return (
     <>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/insert" element={<Insert />}></Route>
+          <Route path="/display" element={<Display />}></Route>
+        </Route>
       </Routes>
     </>
   );
