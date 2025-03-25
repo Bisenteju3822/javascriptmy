@@ -1,22 +1,54 @@
-const express = require("express")
-const app = express()
-const mongoose = require("mongoose")
-const cors = require("cors")
-const port = 3000
+const express = require("express");
+const app = express();
+const fs = require("fs")
+const port = 8000;
+fs.writeFile("one.txt", "tis is new file", (err) => {
+  if (err) {
 
-const bodyparser = require("body-parser")
-app.use(bodyparser.urlencoded({ extended: true }))
-app.use(bodyparser.json())
-app.use(require("./route/relationRoute"))
-mongoose.connect("mongodb://127.0.0.1:27017/reation-Practise").then(() => {
-  try {
-    console.log("the mongodb is connected")
-  } catch (error) {
-    console.log(error)
-    console.log("error in the mongodb connection")
+    console.log("This is error")
   }
-}
-)
-app.listen(3000, () => {
-  console.log("server is started in 3000")
+
+  console.log("this is file which successfully created")
+
 })
+fs.truncate("one.txt", 0, (err) => {
+  if (err) {
+
+    console.log("This is error")
+  }
+
+  console.log("this is file which  deleted")
+
+})
+fs.appendFile("one.txt", "tis is new  tird file", (err) => {
+  if (err) {
+
+    console.log("This is error")
+  }
+
+  console.log("this is file which  append")
+
+})
+app.put("/next",
+  (req, res) => {
+    res.send("this is next", 3000)
+  })
+
+app.get("/insert", (req, res) => {
+  const a = 5;
+  const b = 7;
+  const sum = a + b;
+  console.log(sum);
+  try {
+    res.status(200).send(`The sum of ${a} and ${b} is ${sum}. It works correctly.`);
+  } catch (error) {
+    console.log("error is comming")
+  }
+
+
+}
+);
+
+app.listen(port, () => {
+  console.log("Server is running on port 8000");
+});
